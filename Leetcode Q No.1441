@@ -1,0 +1,28 @@
+Leetcode Question No. 1441. Build an Array With Stack Operations
+
+
+class Solution {
+    public List<String> buildArray(int[] target, int n) {
+        String p="Push";
+        String pp="Pop";
+        Stack<Integer> stack=new Stack<>();
+        int a=0;
+        List<String> result=new ArrayList<>();
+        for(int i=1;i<=n;i++)
+        {
+            if(a>=target.length)
+            {
+                break;
+            }
+            stack.push(i);
+            result.add(p);
+            if(stack.peek()!=target[a]){
+                stack.pop();
+                result.add(pp);
+                continue;
+            }
+            a++;
+        }
+        return result;
+    }
+}
